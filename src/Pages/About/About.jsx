@@ -39,7 +39,7 @@ const About = () => {
         <img
           src={profileImg}
           alt="Shakil"
-          className="min-w-sm h-96 rounded-full overflow-hidden border-4 border-cyan-400 object-cover"
+          className="sm:min-w-sm h-96 rounded-full overflow-hidden border-4 border-cyan-400 object-cover"
         />
       </motion.div>
 
@@ -51,8 +51,8 @@ const About = () => {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-4xl font-bold text-cyan-400 mb-6">About Me</h2>
-        <p className="text-lg text-gray-300 leading-8 mb-6">
+        <h2 className="text-3xl sm:text-4xl font-bold text-cyan-400 mb-6">About Me</h2>
+        <p className="text-sm sm:text-base md:text-lg text-gray-300  md:leading-8 mb-6">
           Hi, I'm{" "}
           <span className="text-cyan-400 font-semibold">Shakil Sarkar</span>, a
           passionate and dedicated Full Stack Web Developer from Bangladesh. I

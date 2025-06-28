@@ -1,7 +1,8 @@
 import React from 'react';
 import Hero from '../Components/Hero/Hero';
 import About from '../Pages/About/About';
-import Projects from '../Pages/Projects/Prohects';
+import Projects from '../Pages/Projects/Projects';
+import Contact from '../Pages/Contact/Contact';
 
 const Router = () => {
     return (
@@ -9,7 +10,7 @@ const Router = () => {
             <section id='hero'><Hero/></section>
             <section id='about'><About/></section>
             <section id='projects'><Projects/></section>
-            <section id='contact'></section>
+            <section id='contact'><Contact/></section>
         </div>
     );
 };

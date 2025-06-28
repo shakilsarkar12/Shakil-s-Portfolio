@@ -1,18 +1,18 @@
-import React from 'react';
-import Navbar from '../Components/Navbar/Navbar';
-import Router from '../Routes/Router';
+import React from "react";
+import Navbar from "../Components/Navbar/Navbar";
+import Router from "../Routes/Router";
+import Footer from "../Components/Footer/Footer";
 
 const Root = () => {
-    return (
-      <div>
-        <div className="mx-4 md:mx-8 lg:mx-14 xl:mx-20 2xl:max-w-10/12  2xl:mx-auto">
-          <Navbar/>
-          <div className="min-h-[calc(90vh-64px)]">
-            <Router/>
-          </div>
-        </div>
+  return (
+    <div className="mx-4 md:mx-8 lg:mx-14 xl:mx-20 2xl:max-w-10/12  2xl:mx-auto">
+      <Navbar />
+      <div className="min-h-[calc(90vh-64px)] z-0">
+        <Router />
       </div>
-    );
+      <Footer />
+    </div>
+  );
 };
 
 export default Root;

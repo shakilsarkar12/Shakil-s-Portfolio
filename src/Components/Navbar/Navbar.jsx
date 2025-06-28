@@ -1,9 +1,10 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { FaBars } from "react-icons/fa";
-import { useState } from "react";
-import yourLogo from "../../assets/logo.png";
+import Logo from "../../assets/logo.png";
 import { Link } from "react-scroll";
+import { IoMdClose } from "react-icons/io";
+import { FaArrowDown } from "react-icons/fa6";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,12 +14,7 @@ const Navbar = () => {
   };
 
   return (
-    <motion.nav
-      initial={{ y: -50, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6 }}
-      className="bg-[#0F172A] text-white py-4 flex justify-between items-center w-full z-50 sticky top-0"
-    >
+    <nav className="sticky top-0 bg-[#0F172A]/70 backdrop-blur-lg text-white py-4 flex justify-between items-center w-full z-50">
       {/* Logo */}
       <Link
         to="hero"
@@ -28,115 +24,94 @@ const Navbar = () => {
         activeClass="text-cyan-400"
         className="cursor-pointer"
       >
-        <img src={yourLogo} alt="Logo" className="w-32 md:w-40" />
+        <img src={Logo} alt="Logo" className="w-32 md:w-40" />
       </Link>
+
       {/* Desktop Menu */}
-      <div className="hidden md:flex items-center  gap-10 text-lg font-medium">
-        <Link
-          to="hero"
-          smooth={true}
-          duration={500}
-          spy={true}
-          activeClass="text-cyan-400"
-          className="hover:text-cyan-400 duration-300 cursor-pointer"
-        >
-          Home
-        </Link>
-        <Link
-          to="about"
-          smooth={true}
-          duration={500}
-          spy={true}
-          activeClass="text-cyan-400"
-          className="hover:text-cyan-400 duration-300 cursor-pointer"
-        >
-          About
-        </Link>
-        <Link
-          to="projects"
-          smooth={true}
-          duration={500}
-          spy={true}
-          activeClass="text-cyan-400"
-          className="hover:text-cyan-400 duration-300 cursor-pointer"
-        >
-          Projects
-        </Link>
-        <Link
-          to="contact"
-          smooth={true}
-          duration={500}
-          spy={true}
-          activeClass="text-cyan-400"
-          className="hover:text-cyan-400 duration-300 cursor-pointer"
-        >
-          Contact
-        </Link>
+      <div className="hidden md:flex items-center gap-10 text-lg font-medium">
+        {["hero", "about", "projects", "contact"].map((item) => (
+          <Link
+            key={item}
+            to={item}
+            smooth={true}
+            duration={500}
+            spy={true}
+            activeClass="text-cyan-400"
+            className="hover:text-cyan-400 duration-300 cursor-pointer capitalize"
+          >
+            {item}
+          </Link>
+        ))}
       </div>
 
-      {/* Mobile Menu Button */}
-      <div className=" flex items-center justify-center gap-4">
+      {/* Desktop Resume Button */}
+      <div className="hidden md:flex">
         <a
           href="/resume.pdf"
           download
-          className="bg-cyan-400 text-black text-sm md:text-base font-medium md:font-semibold px-3 md:px-5 py-1.5 md:py-2 rounded-full shadow hover:bg-cyan-300 transition duration-300"
+          className="inline-flex items-center gap-2 bg-cyan-400 text-black text-sm md:text-base font-medium md:font-semibold px-4 md:px-5 py-1.5 md:py-2 rounded-full shadow hover:bg-cyan-300 transition duration-300"
         >
-          Resume
+          Resume <FaArrowDown />
         </a>
-        <button
-          onClick={handleMenuToggle}
-          className="md:hidden flex items-center justify-center"
-        >
-          <FaBars size={24} />
-        </button>
       </div>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="absolute top-16 right-6 bg-[#0F172A] border border-cyan-400 rounded-md shadow-md flex flex-col p-4 space-y-4 md:hidden z-50">
-          <Link
-            to="hero"
-            smooth={true}
-            duration={500}
-            spy={true}
-            activeClass="text-cyan-400"
-            className="hover:text-cyan-400 duration-300 cursor-pointer"
+      {/* Mobile Menu Button */}
+      <button
+        onClick={handleMenuToggle}
+        className="md:hidden flex items-center justify-center"
+      >
+        <FaBars size={24} />
+      </button>
+
+      {/* Mobile Drawer */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ x: "-100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "-100%" }}
+            transition={{ duration: 0.4 }}
+            className="md:hidden fixed top-0 left-0 w-64 h-full bg-[#0F172A] border-r border-cyan-400 p-6 z-50 flex flex-col gap-8"
           >
-            Home
-          </Link>
-          <Link
-            to="about"
-            smooth={true}
-            duration={500}
-            spy={true}
-            activeClass="text-cyan-400"
-            className="hover:text-cyan-400 duration-300 cursor-pointer"
-          >
-            About
-          </Link>
-          <Link
-            to="projects"
-            smooth={true}
-            duration={500}
-            spy={true}
-            activeClass="text-cyan-400"
-            className="hover:text-cyan-400 duration-300 cursor-pointer"
-          >
-            Projects
-          </Link>
-          <Link
-            to="contact"
-            smooth={true}
-            duration={500}
-            spy={true}
-            activeClass="text-cyan-400"
-            className="hover:text-cyan-400 duration-300 cursor-pointer"
-          >
-            Contact
-          </Link>
-        </div>
-      )}
-    </motion.nav>
+            {/* Close Button */}
+            <div className="flex justify-end mb-6">
+              <button onClick={handleMenuToggle}>
+                <IoMdClose size={24} className="text-cyan-400" />
+              </button>
+            </div>
+
+            {/* Nav Links */}
+            <div className="flex flex-col gap-6 text-lg font-medium">
+              {["hero", "about", "projects", "contact"].map((item) => (
+                <Link
+                  key={item}
+                  to={item}
+                  smooth={true}
+                  duration={500}
+                  spy={true}
+                  onClick={handleMenuToggle}
+                  activeClass="text-cyan-400"
+                  className="hover:text-cyan-400 duration-300 cursor-pointer capitalize"
+                >
+                  {item}
+                </Link>
+              ))}
+            </div>
+
+            {/* Resume Button */}
+            <div className="mt-auto">
+              <a
+                href="/resume.pdf"
+                download
+                className="block text-center bg-cyan-400 text-black font-medium py-2 rounded-full shadow hover:bg-cyan-300 transition duration-300"
+              >
+                Download Resume
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
   );
 };
 

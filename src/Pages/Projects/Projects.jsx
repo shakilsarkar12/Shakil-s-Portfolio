@@ -19,7 +19,7 @@ const Projects = () => {
   return (
     <motion.section
       id="projects"
-      className="min-h-screen flex flex-col justify-center items-center px-6 py-20"
+      className="min-h-screen flex flex-col justify-center items-center py-20"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
@@ -37,7 +37,7 @@ const Projects = () => {
             transition={{ duration: 0.6, delay: index * 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="md:w-2/4 object-cover">
+            <div className="h-64 md:h-full md:w-2/4 object-center">
               <img
                 src={project.image}
                 alt={project.title}
@@ -45,12 +45,12 @@ const Projects = () => {
               />
             </div>
 
-            <div className="p-6 flex flex-col justify-between w-full md:w-2/3">
+            <div className="p-3 sm:p-6 flex flex-col justify-between w-full md:w-2/3">
               <div>
-                <h3 className="text-2xl text-cyan-300 font-semibold mb-3">
+                <h3 className="text-xl sm:text-2xl text-cyan-300 font-semibold mb-3">
                   {project.title}
                 </h3>
-                <p className="text-gray-300 mb-4">{project.description}</p>
+                <p className="text-sm sm:text-base text-gray-300 mb-4">{project.description}</p>
 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech, techIndex) => (

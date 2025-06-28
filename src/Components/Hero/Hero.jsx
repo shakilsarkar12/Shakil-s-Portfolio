@@ -62,7 +62,10 @@ const Hero = () => {
           className="space-x-2 sm:space-x-4"
         >
           <Link
-            href="#projects"
+            to="projects"
+            smooth={true}
+            duration={500}
+            spy={true}
             className="inline-flex items-center gap-2 bg-cyan-400 text-black text-sm md:text-base font-medium md:font-semibold px-4 md:px-5 py-1.5 md:py-2 rounded-full shadow hover:bg-cyan-300 transition duration-300"
           >
             View Projects <FaArrowRight />
@@ -71,7 +74,7 @@ const Hero = () => {
             href="#projects"
             className="inline-flex items-center gap-2 bg-cyan-400 text-black text-sm md:text-base font-medium md:font-semibold px-4 md:px-5 py-1.5 md:py-2 rounded-full shadow hover:bg-cyan-300 transition duration-300"
           >
-            Download  CV <FaArrowDown />
+            Download CV <FaArrowDown />
           </Link>
         </motion.div>
       </div>
