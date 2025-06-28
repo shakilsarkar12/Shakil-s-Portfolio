@@ -1,22 +1,23 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaArrowRight } from "react-icons/fa";
 import { TypeAnimation } from "react-type-animation";
 import HeroImage from "./HeroImage";
+import { FaArrowDown, FaArrowRight } from "react-icons/fa6";
+import { Link } from "react-scroll";
 
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-[#0F172A] text-white px-6 md:px-20 overflow-hidden">
+    <section className="min-h-screen flex flex-col-reverse md:flex-row items-center justify-between w-full bg-[#0F172A] text-white overflow-hidden">
       {/* Left Text */}
       <div className="flex-1 text-center md:text-left space-y-6">
         <motion.h1
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl md:text-6xl font-bold"
+          className="text-3xl sm:text-4xl md:text-6xl font-semibold md:font-bold"
         >
-          Hi, I’m <span className="text-cyan-400">Shakil</span> 👋
+          Hi, I’m <span className="text-cyan-400">Shakil Sarkar</span>
         </motion.h1>
 
         {/* Animated Text */}
@@ -58,13 +59,20 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.8 }}
+          className="space-x-2 sm:space-x-4"
         >
-          <a
+          <Link
             href="#projects"
-            className="inline-flex items-center gap-2 bg-cyan-400 text-black font-semibold px-6 py-3 rounded-full shadow hover:bg-cyan-300 transition duration-300"
+            className="inline-flex items-center gap-2 bg-cyan-400 text-black text-sm md:text-base font-medium md:font-semibold px-4 md:px-5 py-1.5 md:py-2 rounded-full shadow hover:bg-cyan-300 transition duration-300"
           >
             View Projects <FaArrowRight />
-          </a>
+          </Link>
+          <Link
+            href="#projects"
+            className="inline-flex items-center gap-2 bg-cyan-400 text-black text-sm md:text-base font-medium md:font-semibold px-4 md:px-5 py-1.5 md:py-2 rounded-full shadow hover:bg-cyan-300 transition duration-300"
+          >
+            Download  CV <FaArrowDown />
+          </Link>
         </motion.div>
       </div>
 
@@ -75,7 +83,7 @@ const Hero = () => {
         transition={{ delay: 0.1, duration: 0.8 }}
         className="flex-1 mt-10 md:mt-0 flex justify-center relative"
       >
-        <div className="flex-1 flex justify-center mt-10 md:mt-0">
+        <div className="flex-1 flex md:justify-end mt-10 md:mt-0">
           <HeroImage />
         </div>
       </motion.div>

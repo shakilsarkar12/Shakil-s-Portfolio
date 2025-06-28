@@ -1,18 +1,17 @@
-import { createBrowserRouter } from "react-router";
-import Root from "../Root/Root";
-import Home from "../Pages/Home/Home";
-import Error from "../Pages/Error/Error";
+import React from 'react';
+import Hero from '../Components/Hero/Hero';
+import About from '../Pages/About/About';
+import Projects from '../Pages/Projects/Prohects';
 
-export const router = createBrowserRouter([
-    {
-        path: '/',
-        Component: Root,
-        errorElement: <Error/>,
-        children: [
-            {
-                path: '/',
-                Component: Home,
-            },
-        ]
-    }
-])
+const Router = () => {
+    return (
+        <div>
+            <section id='hero'><Hero/></section>
+            <section id='about'><About/></section>
+            <section id='projects'><Projects/></section>
+            <section id='contact'></section>
+        </div>
+    );
+};
+
+export default Router;

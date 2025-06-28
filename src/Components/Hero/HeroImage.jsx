@@ -1,18 +1,18 @@
 import React from 'react';
-import image from "../../assets/image.jpg";
+import image from "../../assets/image1.png";
 import "./heroImage.css"
 
 const HeroImage = () => {
     return (
-      <div className="relative w-96 h-96 rounded-full flex items-center justify-center overflow-hidden home-img">
+      <div className="relative w-[250px] md:w-[300px] lg:w-[400px] xl:w-[500px] h-[250px] md:h-[300px] lg:h-[400px] xl:h-[500px] rounded-full flex items-center overflow-hidden home-img">
         {/* Rotating Conic Gradient Border */}
-        <div className="img-box rounded-full">
-          <div className="img-item rounded-full">
-            {/* <img
+        <div className="img-box">
+          <div className="img-item">
+            <img
               src={image}
               alt="Shakil"
               className="w-full h-full object-cover"
-            /> */}
+            />
           </div>
         </div>
       </div>

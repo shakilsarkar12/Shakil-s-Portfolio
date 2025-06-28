@@ -1,0 +1,72 @@
+[
+    {
+        "title": "Lost & Found Web App",
+        "description": "A full-stack web application designed to help users report lost or found items. Users can upload item images, provide details, and search through listings. It features user authentication, categorized search, and item status updates.",
+        "technologies": [
+            "React",
+            "TailwindCSS",
+            "Node.js",
+            "Express",
+            "MongoDB",
+            "Firebase Auth"
+        ],
+        "features": [
+            "Report lost or found items",
+            "Search by category and status",
+            "User authentication and protected routes",
+            "Image upload via ImgBB",
+            "Responsive design"
+        ],
+        "image": "https://i.ibb.co/WW559CYf/image.png",
+        "liveLink": "https://backtoyou-0.web.app/",
+        "clientRepo": "https://github.com/shakilsarkar12/back-to-you-cliant",
+        "serverRepo": "https://github.com/shakilsarkar12/back-to-you-server"
+    },
+    {
+        "title": "Bill Management Website",
+        "description": "A responsive dashboard-based web application where users can manage their monthly bills. It includes authentication, adding/editing bills, billing summaries, and recent activity tracking.",
+        "technologies": [
+            "React",
+            "TailwindCSS",
+            "Firebase",
+            "MongoDB",
+            "Express",
+            "JWT",
+            "Chart.js"
+        ],
+        "features": [
+            "Add, edit, and delete bills",
+            "View billing summary and charts",
+            "Authentication and user dashboard",
+            "Toast notifications for success/error",
+            "Mobile-friendly layout"
+        ],
+        "image": "https://i.ibb.co/cX6STXK5/image.png",
+        "liveLink": "https://pay-bill-4686e.web.app/",
+        "clientRepo": "https://github.com/shakilsarkar12/bill-management-system"
+    },
+    {
+        "title": "Plant Care Tracker",
+        "description": "An all-in-one plant management system where users can add, update, and track their plant's health, watering schedules, and care routines. It includes user authentication, a responsive dashboard, sorting/filtering, and feedback system.",
+        "technologies": [
+            "React",
+            "TailwindCSS",
+            "DaisyUI",
+            "MongoDB",
+            "Firebase",
+            "Node.js",
+            "Express"
+        ],
+        "features": [
+            "Add, update, and delete plant entries",
+            "Track watering schedules",
+            "Image upload with ImgBB",
+            "Feedback and profile management",
+            "Dark/light mode and search filters"
+        ],
+        "image": "https://i.ibb.co/Y4tymwBm/image.png",
+        "liveLink": "https://plant-care-tracker-c369a.web.app/",
+        "clientRepo": "https://github.com/shakilsarkar12/plant-care-tracker-client",
+        "serverRepo": "https://github.com/shakilsarkar12/plant-care-tracker-server"
+    }
+]

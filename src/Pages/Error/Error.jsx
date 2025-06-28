@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
-import { Link } from "react-router";
+import { Link } from "react-scroll";
 
 const Error = () => {
 
@@ -22,7 +22,7 @@ const Error = () => {
           <p className="fw-fit md:w-11/12 lg:w-10/12 xl:w-9/12 mx-auto text-sm md:text-base lg:text-lg font-medium opacity-70 text-center mb-6">
             Opps! The page you'r looking for dosen't exist
           </p>
-          <Link to="/">
+          <Link to="hero">
             <button className="btn md:btn-lg border-none bg-[#0EA106] text-white">
               Go To Home
             </button>
