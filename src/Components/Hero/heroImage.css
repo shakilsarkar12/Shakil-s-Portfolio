@@ -1,0 +1,53 @@
+.home-img .img-box {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .home-img .img-box::before,
+  .home-img .img-box::after {
+    content: ' ';
+    position: absolute;
+    width: 35rem;
+    height: 35rem;
+    background: conic-gradient(transparent, transparent, transparent, #22D3EE);
+    animation: rotate-border 12s linear infinite;
+  border-radius: 50%;
+    z-index: 0;
+  }
+  
+  .home-img .img-box::after {
+    animation-delay: -6s;
+  }
+  
+  @keyframes rotate-border {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .home-img .img-box .img-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #0F172A;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    overflow: hidden;
+  }
+  
+  .home-img .img-box .img-item img {
+    position: absolute;
+    width: 100%;
+    object-fit: cover;
+  }
+  
