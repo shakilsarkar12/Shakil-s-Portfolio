@@ -22,7 +22,7 @@ const About = () => {
   return (
     <motion.section
       id="about"
-      className="min-h-screen flex flex-col lg:flex-row items-center justify-center gap-10 py-20"
+      className="min-h-screen flex flex-col lg:flex-row items-center justify-center gap-10  sm:p-2 py-20"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
@@ -80,23 +80,6 @@ const About = () => {
           is to become a professional software engineer and build impactful
           digital solutions for real-world problems.
         </p>
-
-        <h3 className="text-2xl font-semibold text-white mb-4">My Skills</h3>
-        <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-4xl text-cyan-400">
-          <SiHtml5 title="HTML5" />
-          <SiCss3 title="CSS3" />
-          <SiTailwindcss title="Tailwind CSS" />
-          <SiJavascript title="JavaScript" />
-          <SiReact title="React.js" />
-          <SiFirebase title="Firebase" />
-          <SiNodedotjs title="Node.js" />
-          <SiExpress title="Express.js" />
-          <SiMongodb title="MongoDB" />
-          <SiJsonwebtokens title="JWT" />
-          <SiGithub title="GitHub" />
-          <SiVercel title="Vercel" />
-          <SiNetlify title="Netlify" />
-        </div>
       </motion.div>
     </motion.section>
   );

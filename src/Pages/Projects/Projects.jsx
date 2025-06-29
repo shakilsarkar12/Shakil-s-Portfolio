@@ -19,7 +19,7 @@ const Projects = () => {
   return (
     <motion.section
       id="projects"
-      className="min-h-screen flex flex-col justify-center items-center py-20"
+      className="min-h-screen flex flex-col justify-end mt-16 items-center sm:p-2 py-20"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
@@ -27,17 +27,17 @@ const Projects = () => {
     >
       <h2 className="text-4xl font-bold text-cyan-400 mb-10">My Projects</h2>
 
-      <div className="flex flex-col gap-8 w-full max-w-6xl">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 xl:gap-8 w-full">
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            className="flex flex-col md:flex-row bg-[#1E293B] border border-cyan-400 rounded-xl overflow-hidden"
+            className="flex flex-col 2xl:flex-row bg-[#1E293B] border border-cyan-400 rounded-xl overflow-hidden"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="h-64 md:h-full md:w-2/4 object-center">
+            <div className="h-64 lg:h-80 xl:h-full 2xl:w-3/6 object-center">
               <img
                 src={project.image}
                 alt={project.title}
@@ -45,7 +45,7 @@ const Projects = () => {
               />
             </div>
 
-            <div className="p-3 sm:p-6 flex flex-col justify-between w-full md:w-2/3">
+            <div className="p-3 sm:p-6 flex flex-col justify-between w-full 2xl:w-3/6">
               <div>
                 <h3 className="text-xl sm:text-2xl text-cyan-300 font-semibold mb-3">
                   {project.title}

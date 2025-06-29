@@ -2,13 +2,19 @@ import React from "react";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import HeroImage from "./HeroImage";
-import { FaArrowDown, FaArrowRight } from "react-icons/fa6";
+import {
+  FaArrowDown,
+  FaArrowRight,
+  FaFacebookF,
+  FaGithub,
+  FaLinkedinIn,
+  FaTwitter,
+} from "react-icons/fa6";
 import { Link } from "react-scroll";
-
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex flex-col-reverse md:flex-row items-center justify-between w-full bg-[#0F172A] text-white overflow-hidden">
+    <section className="min-h-screen flex flex-col-reverse md:flex-row items-center justify-between w-full bg-[#0F172A] text-white overflow-hidden sm:p-2">
       {/* Left Text */}
       <div className="flex-1 text-center md:text-left space-y-6">
         <motion.h1
@@ -54,6 +60,48 @@ const Hero = () => {
           MongoDB & Tailwind.
         </motion.p>
 
+        {/* Social link */}
+        <motion.div
+          className="flex gap-4 mt-6"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          viewport={{ once: true }}
+        >
+          <a
+            href="https://github.com/shakilsarkar12"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 hover:shadow-[0_0_10px_theme(colors.cyan.400)] text-sm text-cyan-400 hover:text-[#0F172A] font-medium hover:bg-cyan-400 border-2 border-cyan-400 rounded-full transition duration-300"
+          >
+            <FaGithub size={20} />
+          </a>
+          <a
+            href="https://linkedin.com/in/shakilsarkar12"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 hover:shadow-[0_0_10px_theme(colors.cyan.400)] text-sm text-cyan-400 hover:text-[#0F172A] font-medium hover:bg-cyan-400 border-2 border-cyan-400 rounded-full transition duration-300"
+          >
+            <FaLinkedinIn size={20} />
+          </a>
+          <a
+            href="https://x.com/sarkar34494"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 hover:shadow-[0_0_10px_theme(colors.cyan.400)] text-sm text-cyan-400 hover:text-[#0F172A] font-medium hover:bg-cyan-400 border-2 border-cyan-400 rounded-full transition duration-300"
+          >
+            <FaTwitter size={20} />
+          </a>
+          <a
+            href="https://www.facebook.com/md.shakilsarker.5832"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 hover:shadow-[0_0_10px_theme(colors.cyan.400)] text-sm text-cyan-400 hover:text-[#0F172A] font-medium hover:bg-cyan-400 border-2 border-cyan-400 rounded-full transition duration-300"
+          >
+            <FaFacebookF size={20} />
+          </a>
+        </motion.div>
+
         {/* Button */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -66,13 +114,13 @@ const Hero = () => {
             smooth={true}
             duration={500}
             spy={true}
-            className="inline-flex items-center gap-2 bg-cyan-400 text-black text-sm md:text-base font-medium md:font-semibold px-4 md:px-5 py-1.5 md:py-2 rounded-full shadow hover:bg-cyan-300 transition duration-300"
+            className="inline-flex items-center gap-2 px-4 md:px-5 py-1.5 md:py-2 hover:shadow-[0_0_10px_theme(colors.cyan.400)] text-sm text-cyan-400 hover:text-[#0F172A] font-medium sm:font-semibold hover:bg-cyan-400 border-2 border-cyan-400 rounded-full transition duration-300"
           >
             View Projects <FaArrowRight />
           </Link>
           <Link
             href="#projects"
-            className="inline-flex items-center gap-2 bg-cyan-400 text-black text-sm md:text-base font-medium md:font-semibold px-4 md:px-5 py-1.5 md:py-2 rounded-full shadow hover:bg-cyan-300 transition duration-300"
+            className="inline-flex items-center gap-2 px-4 md:px-5 py-1.5 md:py-2 hover:shadow-[0_0_10px_theme(colors.cyan.400)] text-sm hover:text-cyan-400 hover:bg-[#0F172A] text-[#0F172A] font-medium sm:font-semibold bg-cyan-400 border-2 border-cyan-400 rounded-full transition duration-300"
           >
             Download CV <FaArrowDown />
           </Link>
