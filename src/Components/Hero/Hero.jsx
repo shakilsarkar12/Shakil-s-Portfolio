@@ -21,9 +21,9 @@ const Hero = () => {
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-3xl sm:text-4xl md:text-6xl font-semibold md:font-bold"
+          className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-semibold xl:font-bold"
         >
-          Hi, I’m <span className="text-cyan-400">Shakil Sarkar</span>
+          Hi, I’m <span className="text-cyan-400 w-full">Shakil Sarkar</span>
         </motion.h1>
 
         {/* Animated Text */}
@@ -54,7 +54,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
-          className="text-gray-300 text-lg md:text-xl"
+          className="cursor-hover text-gray-300 text-lg md:text-xl"
         >
           I build modern, secure, and dynamic websites using React, Node,
           MongoDB & Tailwind.
@@ -62,7 +62,7 @@ const Hero = () => {
 
         {/* Social link */}
         <motion.div
-          className="flex gap-4 mt-6"
+          className="flex gap-4 mt-6 items-center justify-center md:justify-normal"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -107,23 +107,24 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.8 }}
-          className="space-x-2 sm:space-x-4"
+          className="space-y-2 sm:space-y-0 space-x-2 sm:space-x-4"
         >
           <Link
             to="projects"
             smooth={true}
             duration={500}
             spy={true}
-            className="inline-flex items-center gap-2 px-4 md:px-5 py-1.5 md:py-2 hover:shadow-[0_0_10px_theme(colors.cyan.400)] text-sm text-cyan-400 hover:text-[#0F172A] font-medium sm:font-semibold hover:bg-cyan-400 border-2 border-cyan-400 rounded-full transition duration-300"
+            className="cursor-hover inline-flex items-center gap-2 px-3 md:px-5 py-1.5 md:py-2 hover:shadow-[0_0_10px_theme(colors.cyan.400)] text-sm text-cyan-400 hover:text-[#0F172A] font-medium sm:font-semibold hover:bg-cyan-400 border-2 border-cyan-400 rounded-full transition duration-300"
           >
             View Projects <FaArrowRight />
           </Link>
-          <Link
-            href="#projects"
-            className="inline-flex items-center gap-2 px-4 md:px-5 py-1.5 md:py-2 hover:shadow-[0_0_10px_theme(colors.cyan.400)] text-sm hover:text-cyan-400 hover:bg-[#0F172A] text-[#0F172A] font-medium sm:font-semibold bg-cyan-400 border-2 border-cyan-400 rounded-full transition duration-300"
+          <a
+            href="/resume.pdf"
+            download
+            className="inline-flex items-center gap-2 px-3 md:px-5 py-1.5 md:py-2 hover:shadow-[0_0_10px_theme(colors.cyan.400)] text-sm hover:text-cyan-400 hover:bg-[#0F172A] text-[#0F172A] font-medium sm:font-semibold bg-cyan-400 border-2 border-cyan-400 rounded-full transition duration-300"
           >
             Download CV <FaArrowDown />
-          </Link>
+          </a>
         </motion.div>
       </div>
 

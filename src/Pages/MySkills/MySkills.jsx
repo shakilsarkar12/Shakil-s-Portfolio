@@ -55,13 +55,12 @@ const MySkills = () => {
       </h2>
 
       {/* Row 1 */}
-      <Marquee
-        speed={40}
-        gradient={false}
-        autoFill={true}
-      >
+      <Marquee speed={30} gradient={false} autoFill={true}>
         {icons1.map((icon, i) => (
-          <div key={i} className="text-5xl text-cyan-400 mx-6">
+          <div
+            key={i}
+            className="text-3xl sm:text-4xl md:text-5xl text-cyan-400 mx-4 md:mx-6"
+          >
             {icon}
           </div>
         ))}
@@ -69,14 +68,17 @@ const MySkills = () => {
 
       {/* Row 2 */}
       <Marquee
-        speed={40}
+        speed={30}
         gradient={false}
         direction="right"
         autoFill={true}
         className="mt-8 "
       >
         {icons2.map((icon, i) => (
-          <div key={i} className="text-5xl text-cyan-400 mx-6">
+          <div
+            key={i}
+            className="text-3xl sm:text-4xl md:text-5xl text-cyan-400 mx-4 md:mx-6"
+          >
             {icon}
           </div>
         ))}

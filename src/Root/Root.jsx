@@ -3,12 +3,14 @@ import Navbar from "../Components/Navbar/Navbar";
 import Router from "../Routes/Router";
 import Footer from "../Components/Footer/Footer";
 import BackToTop from "../Components/BackToTop/BackToTop";
+import CustomCursor from "../Components/CustomCursor/CustomCursor";
 
 const Root = () => {
   return (
     <div className="">
+      <CustomCursor/>
       <Navbar />
-      <div className="mx-4 md:mx-8 lg:mx-12 xl:mx-16 2xl:max-w-10/12  2xl:mx-auto min-h-[calc(90vh-64px)] overflow-hidden">
+      <div className="mx-4 md:mx-8 lg:mx-12 xl:mx-20 2xl:max-w-10/12  2xl:mx-auto min-h-[calc(90vh-64px)] overflow-hidden">
         <Router />
       </div>
       <Footer />

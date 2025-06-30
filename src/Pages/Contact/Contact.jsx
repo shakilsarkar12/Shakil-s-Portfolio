@@ -119,7 +119,7 @@ const Contact = () => {
           </h2>
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-6"
           >
             <div>
               <input

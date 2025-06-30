@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt, FaInfoCircle } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 
@@ -19,7 +19,7 @@ const Projects = () => {
   return (
     <motion.section
       id="projects"
-      className="min-h-screen flex flex-col justify-end mt-16 items-center sm:p-2 py-20"
+      className="min-h-screen flex flex-col justify-end mt-32 items-center sm:p-2 py-20"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
@@ -50,7 +50,9 @@ const Projects = () => {
                 <h3 className="text-xl sm:text-2xl text-cyan-300 font-semibold mb-3">
                   {project.title}
                 </h3>
-                <p className="text-sm sm:text-base text-gray-300 mb-4">{project.description}</p>
+                <p className="text-sm sm:text-base text-gray-300 mb-4">
+                  {project.description}
+                </p>
 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech, techIndex) => (
@@ -108,78 +110,90 @@ const Projects = () => {
       </div>
 
       {/* Modal */}
-      {selectedProject && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.1 }}
-          viewport={{ once: true }}
-          className="fixed inset-0 bg-white/50 flex items-center justify-center z-50 px-4"
-        >
-          <div className="bg-[#0F172A] p-6 rounded-xl w-full max-w-lg relative border border-cyan-400">
-            <button
-              onClick={closeModal}
-              className="absolute top-2 right-3 text-white text-2xl cursor-pointer"
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            onClick={closeModal}
+            className="fixed inset-0 bg-gray-500/50 backdrop-blur-xs flex items-center justify-center z-50 px-4"
+          >
+            <motion.div
+              initial={{ y: 40, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 20, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-[#0F172A] p-6 rounded-xl w-full max-w-lg relative border border-cyan-400"
             >
-              <IoMdClose />
-            </button>
-
-            <h3 className="text-2xl text-cyan-300 font-semibold mb-3">
-              {selectedProject.title}
-            </h3>
-            <p className="text-gray-300 mb-4">{selectedProject.description}</p>
-
-            <div className="flex flex-wrap gap-2 mb-4">
-              {selectedProject.technologies.map((tech, index) => (
-                <span
-                  key={index}
-                  className="bg-cyan-600 text-sm text-white px-2 py-1 rounded"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-
-            <ul className="text-gray-400 text-sm mb-4 list-disc list-inside">
-              {selectedProject.features.map((feature, index) => (
-                <li key={index}>{feature}</li>
-              ))}
-            </ul>
-
-            <div className="flex gap-4 text-cyan-300 text-xl mt-2">
-              <a
-                href={selectedProject.clientRepo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white duration-300"
-                title="Client Repo"
+              <button
+                onClick={closeModal}
+                className="absolute top-2 right-3 text-white text-2xl cursor-pointer"
               >
-                <FaGithub />
-              </a>
-              {selectedProject.serverRepo && (
+                <IoMdClose />
+              </button>
+
+              <h3 className="text-2xl text-cyan-300 font-semibold mb-3">
+                {selectedProject.title}
+              </h3>
+              <p className="text-gray-300 mb-4">
+                {selectedProject.description}
+              </p>
+
+              <div className="flex flex-wrap gap-2 mb-4">
+                {selectedProject.technologies.map((tech, index) => (
+                  <span
+                    key={index}
+                    className="bg-cyan-600 text-sm text-white px-2 py-1 rounded"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <ul className="text-gray-400 text-sm mb-4 list-disc list-inside">
+                {selectedProject.features.map((feature, index) => (
+                  <li key={index}>{feature}</li>
+                ))}
+              </ul>
+
+              <div className="flex gap-4 text-cyan-300 text-xl mt-2">
                 <a
-                  href={selectedProject.serverRepo}
+                  href={selectedProject.clientRepo}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white duration-300"
-                  title="Server Repo"
+                  title="Client Repo"
                 >
                   <FaGithub />
                 </a>
-              )}
-              <a
-                href={selectedProject.liveLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white duration-300"
-                title="Live Site"
-              >
-                <FaExternalLinkAlt />
-              </a>
-            </div>
-          </div>
-        </motion.div>
-      )}
+                {selectedProject.serverRepo && (
+                  <a
+                    href={selectedProject.serverRepo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white duration-300"
+                    title="Server Repo"
+                  >
+                    <FaGithub />
+                  </a>
+                )}
+                <a
+                  href={selectedProject.liveLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white duration-300"
+                  title="Live Site"
+                >
+                  <FaExternalLinkAlt />
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.section>
   );
 };
